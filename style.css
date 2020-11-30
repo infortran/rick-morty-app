@@ -13,24 +13,40 @@ html{
 body{
     background: rgba(14,174,202,.3);
     color: #0d2a41;
-    padding:10px;
 }
 
 header{
     text-align: center;
+    margin-bottom: 30px;
+    padding:20px;
+    background: rgba(0,0,0,.2);
 }
 
 header img{
-    width:100%;
+    width:80%;
+    display:block;
+    margin:-15px auto 0 auto;
     max-width: 300px;
+
+}
+
+.card-container{
+    margin:10px;
 }
 
 .card{
-    margin:5px;
+    margin:15px;
     padding:10px;
     border-radius: 10px;
-    background:rgba(255,255,255,.2);
+    background:rgba(255,255,255,.4);
 
+}
+
+.card-header{
+    text-align: center;
+}
+.card h1{
+    margin-bottom: 10px;
 }
 
 .card img{
@@ -40,4 +56,51 @@ header img{
     width:200px;
     height:200px;
     object-fit: cover;
+}
+
+.card-body{
+    background:rgba(255,255,255,.6);
+    margin-top: 20px;
+}
+.card-body ul{
+    list-style: none;
+}
+.card-body ul li{
+    border:1px solid #cfcfcf;
+    padding:15px;
+    display:flex;
+    margin-top: -1px;
+}
+.card-body ul li div{
+    flex:1;
+}
+.card-body ul:last-child{
+    margin-left: auto;
+}
+
+.input{
+    width:100%;
+    padding:10px 20px;
+    border-radius: 5px;
+    border:1px solid #cfcfcf;
+}
+
+.select-container{
+    padding:10px 20px;
+    margin-bottom: 20px;
+}
+
+button{
+    padding:10px 20px;
+    border:1px solid #cfcfcf;
+    background: #0d2a41;
+    color:#ffffff;
+    border-radius: 5px;
+    display:block;
+    margin: 10px auto;
+    transition: ease all .5s;
+}
+
+button:hover{
+    background: #2c8fde;
 }

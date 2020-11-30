@@ -12,15 +12,54 @@
 </head>
 <body>
     <header>
-        <h1>Rick y Morty App</h1>
-        <h3>Por Freddy Pérez</h3>
+
         <img src="images/logo.png" alt="Logo Rick And Morty">
+        <h1>Vanilla JS App</h1>
+        <h3>Por Freddy Pérez</h3>
     </header>
 
-    <div class="card">
-        <h3>Titulo</h3>
-        <img src="images/rickmorty.jpg" alt="Rick y morty juntos">
+    <div class="select-container">
+        <select class="input">
+            <option value="" selected disabled>Selecciona un filtro</option>
+            <option value="">Órden alfabético</option>
+            <option value="">Especie</option>
+            <option value="">Género</option>
+            <option value="">Estado</option>
+        </select>
     </div>
+
+    <div class="card-container">
+
+    </div>
+
+
+
+    <template>
+        <div class="card">
+            <div class="card-header">
+                <h1>Titulo</h1>
+                <img src="images/rickmorty.jpg" alt="Rick y morty juntos">
+            </div>
+            <div class="card-body">
+                <ul>
+                    <li>
+                        <div>Especie:</div>
+                        <div>Humano</div>
+                    </li>
+                    <li>
+                        <div>Género</div>
+                        <div>Male</div>
+                    </li>
+                    <li>
+                        <div>Estado</div>
+                        <div>Vivo</div>
+                    </li>
+
+                </ul>
+            </div>
+            <button type="button" id="">Ver personaje</button>
+        </div>
+    </template>
 </body>
 <script src="app.js"></script>
 </html>
