@@ -7,7 +7,11 @@
 }
 
 html{
-    font-family: 'Roboto';
+    font-family: Helvetica;
+}
+
+.d-none{
+    display:none;
 }
 
 body{
@@ -19,15 +23,25 @@ header{
     text-align: center;
     margin-bottom: 30px;
     padding:20px;
-    background: rgba(0,0,0,.2);
+    background: rgba(0,0,0,.1);
 }
 
-header img{
+header div {
+    flex:1;
+}
+
+.img-rickmorty{
+    border-radius: 50%;
+    width:200px;
+    height:200px;
+    object-fit: cover;
+}
+
+.img-title{
     width:80%;
     display:block;
     margin:-15px auto 0 auto;
     max-width: 300px;
-
 }
 
 .card-container{
@@ -35,18 +49,29 @@ header img{
 }
 
 .card{
-    margin:15px;
-    padding:10px;
+    margin:15px 0;
+    padding:20px;
     border-radius: 10px;
     background:rgba(255,255,255,.4);
-
 }
 
 .card-header{
     text-align: center;
 }
 .card h1{
-    margin-bottom: 10px;
+    max-width: 290px;
+    margin-bottom: 20px;
+}
+
+.ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.localizacion{
+    max-width:120px;
+
 }
 
 .card img{
@@ -74,6 +99,9 @@ header img{
 .card-body ul li div{
     flex:1;
 }
+.card-body > ul > li div:first-child{
+    font-weight: bolder;
+}
 .card-body ul:last-child{
     margin-left: auto;
 }
@@ -84,10 +112,31 @@ header img{
     border-radius: 5px;
     border:1px solid #cfcfcf;
 }
+select{
+    max-width:350px;
+    display:block;
+    margin:0 auto;
+}
 
 .select-container{
     padding:10px 20px;
     margin-bottom: 20px;
+}
+
+.btn-group{
+    display:flex;
+    padding:0 20px;
+}
+
+
+
+.next{
+    display:block;
+    margin-right: 0;
+}
+
+.prev{
+    margin-left: 0;
 }
 
 button{
@@ -103,4 +152,88 @@ button{
 
 button:hover{
     background: #2c8fde;
+}
+
+.btn-link{
+    border:none;
+    background:transparent;
+    color:#0d2a41;
+    outline: none;
+}
+
+.btn-link:hover{
+    border:none;
+    background:transparent;
+    color:#2c8fde;
+    text-decoration: underline;
+    outline: none;
+}
+
+@media(min-width: 375px)
+{
+    .card {
+        margin: 15px;
+    }
+}
+
+@media(min-width: 768px){
+    header{
+        display:flex;
+    }
+    .card-container{
+        display:flex;
+        flex-wrap: wrap;
+    }
+    .card h1{
+        max-width:300px;
+    }
+    .card{
+        flex:1;
+    }
+}
+
+@media(min-width: 1024px) {
+    .card{
+        max-width: 270px;
+    }
+    .card h1{
+        max-width:250px;
+    }
+}
+
+@media(min-width: 1280px){
+    .card-container{
+        width:80%;
+        margin:0 auto;
+    }
+    .btn-group{
+        width:70%;
+        margin:0 auto;
+    }
+}
+
+@media(min-width: 1440px){
+    .card-container{
+        width:70%;
+    }
+    .container-img-rickmorty{
+        display:flex;
+        justify-content: flex-end;
+    }
+}
+
+@media(min-width: 2560px){
+    .card-container{
+        width: 50%;
+    }
+    .card{
+        min-width:350px;
+    }
+    .card h1{
+        max-width: 320px;
+    }
+    .btn-group{
+        width:50%;
+        margin:0 auto;
+    }
 }

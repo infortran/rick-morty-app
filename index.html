@@ -5,19 +5,26 @@
     <meta charset="UTF-8">
     <title>Rick y Morty App By Freddy Pérez</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
     <header>
-
-        <img src="images/logo.png" alt="Logo Rick And Morty">
-        <h1>Vanilla JS App</h1>
-        <h3>Por Freddy Pérez</h3>
+        <div class="container-img-rickmorty">
+            <img class="img-rickmorty" src="images/rickmorty.jpg" alt="">
+        </div>
+        <div>
+            <img class="img-title" src="images/logo.png" alt="Logo Rick And Morty">
+            <h1>Vanilla JS App</h1>
+            <h3>Por Freddy Pérez</h3>
+        </div>
+        <div>
+            
+        </div>
+        
     </header>
 
+    <!--Filtros-->
     <div class="select-container">
         <select class="input">
             <option value="" selected disabled>Selecciona un filtro</option>
@@ -28,38 +35,55 @@
         </select>
     </div>
 
-    <div class="card-container">
+    <div class="btn-group">
+        <button class="d-none prev btn-link">< Anterior</button>
+        <button class="next btn-link" id="next">Siguiente ></button>
+    </div>
+    <!--Display-->
+    <div class="card-container" id="card-container"></div>
 
+    <div class="btn-group">
+        <button class="d-none prev btn-link">< Anterior</button>
+        <button class="next btn-link">Siguiente ></button>
     </div>
 
+    <footer>
 
+    </footer>
 
-    <template>
+    <!--Template de personaje-->
+    <template id="template-card">
         <div class="card">
             <div class="card-header">
-                <h1>Titulo</h1>
-                <img src="images/rickmorty.jpg" alt="Rick y morty juntos">
+                <h1 class="title ellipsis">Titulo</h1>
+                <img class="img" src="images/rickmorty.jpg" alt="Rick y morty juntos">
             </div>
             <div class="card-body">
                 <ul>
                     <li>
                         <div>Especie:</div>
-                        <div>Humano</div>
+                        <div id="especie">Humano</div>
                     </li>
                     <li>
-                        <div>Género</div>
-                        <div>Male</div>
+                        <div>Género:</div>
+                        <div id="genero">Male</div>
                     </li>
                     <li>
-                        <div>Estado</div>
-                        <div>Vivo</div>
+                        <div>Localización:</div>
+                        <div class="ellipsis localizacion" id="localizacion">Chile</div>
+                    </li>
+                    <li>
+                        <div>Estado:</div>
+                        <div id="estado">Vivo</div>
                     </li>
 
                 </ul>
             </div>
-            <button type="button" id="">Ver personaje</button>
+
         </div>
     </template>
+
+    <script src="app.js"></script>
 </body>
-<script src="app.js"></script>
+
 </html>
