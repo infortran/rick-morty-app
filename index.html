@@ -23,15 +23,22 @@
         </div>
         
     </header>
-
+    <h3 class="filter-title">Filtrar por:</h3>
     <!--Filtros-->
     <div class="select-container">
-        <select class="input">
-            <option value="" selected disabled>Selecciona un filtro</option>
-            <option value="">Órden alfabético</option>
-            <option value="">Especie</option>
-            <option value="">Género</option>
-            <option value="">Estado</option>
+
+        <select id="lista-categorias" class="input" onchange="filterSelect(this)">
+            <option value="" selected disabled>Todos los personajes</option>
+            <option value="alphabetic">Órden alfabético</option>
+            <option value="species">Especie</option>
+            <option value="gender">Género</option>
+            <option value="status">Estado</option>
+            <option value="origin">Origen</option>
+        </select>
+    </div>
+    <div class="select-container">
+        <select class="input" id="lista-filtros" onchange="filterPersonajes(this)" disabled>
+            <option value="">Selecciona un filtro...</option>
         </select>
     </div>
 
@@ -40,7 +47,10 @@
         <button class="next btn-link" id="next">Siguiente ></button>
     </div>
     <!--Display-->
-    <div class="card-container" id="card-container"></div>
+
+    <div class="card-container" id="card-container">
+        <div class="loader"></div>
+    </div>
 
     <div class="btn-group">
         <button class="d-none prev btn-link">< Anterior</button>
@@ -69,8 +79,8 @@
                         <div id="genero">Male</div>
                     </li>
                     <li>
-                        <div>Localización:</div>
-                        <div class="ellipsis localizacion" id="localizacion">Chile</div>
+                        <div>Origen:</div>
+                        <div class="ellipsis origen" id="origen">Chile</div>
                     </li>
                     <li>
                         <div>Estado:</div>
