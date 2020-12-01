@@ -30,13 +30,16 @@ body{
 
 header{
     text-align: center;
-    margin-bottom: 30px;
     padding:20px;
     background: rgba(0,0,0,.1);
 }
 
 header div {
     flex:1;
+}
+
+#filter-container{
+    margin-top: 20px;
 }
 
 .filter-title{
@@ -145,12 +148,12 @@ select{
 
 
 
-.next{
+.next-style{
     display:block;
     margin-right: 0;
 }
 
-.prev{
+.prev-style{
     margin-left: 0;
 }
 
@@ -194,6 +197,97 @@ button:hover{
     animation: rotar infinite 1s ease;
     margin:10px auto;
 }
+
+
+
+
+/***************************
+    Switch Dimension
+***********************/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 27px;
+}
+
+.switch-container{
+    display:flex;
+    align-items:center;
+    justify-content: center;
+    padding:20px 0;
+    background: #282851;
+    color: #b1b5de;
+}
+
+.switch-container div:first-child{
+    margin-right: 20px;
+}
+
+/* Esconder el checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(30px);
+    -ms-transform: translateX(30px);
+    transform: translateX(30px);
+}
+
+/* sliders redondeados */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+footer{
+    text-align: center;
+    background: rgba(0,0,0,.3);
+    color: #dede7d;
+    padding:30px 40px
+}
+/****************
+    Animaciones
+*******************/
 
 @keyframes rotar {
     0%{

@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
-    <title>Rick y Morty App By Freddy Pérez</title>
+    <title>Rick y Morty App - Freddy Pérez</title>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="author" content="Freddy Perez Pacheco - https://infortran.cl" />
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
     <header>
@@ -18,47 +17,69 @@
             <h1>Vanilla JS App</h1>
             <h3>Por Freddy Pérez</h3>
         </div>
-        <div>
-            
-        </div>
-        
     </header>
-    <h3 class="filter-title">Filtrar por:</h3>
-    <!--Filtros-->
-    <div class="select-container">
+    <section class="switch-container">
+        <div>Dimensiones</div>
+        <label class="switch">
+            <input type="checkbox" id="switch-dimensions">
+            <span class="slider round"></span>
+        </label>
+    </section>
 
-        <select id="lista-categorias" class="input" onchange="filterSelect(this)">
-            <option value="" selected disabled>Todos los personajes</option>
-            <option value="alphabetic">Órden alfabético</option>
-            <option value="species">Especie</option>
-            <option value="gender">Género</option>
-            <option value="status">Estado</option>
-            <option value="origin">Origen</option>
-        </select>
-    </div>
-    <div class="select-container">
-        <select class="input" id="lista-filtros" onchange="filterPersonajes(this)" disabled>
-            <option value="">Selecciona un filtro...</option>
-        </select>
-    </div>
+    <section id="filter-container"></section>
 
-    <div class="btn-group">
-        <button class="d-none prev btn-link">< Anterior</button>
-        <button class="next btn-link" id="next">Siguiente ></button>
-    </div>
-    <!--Display-->
+    <template id="filter-normal">
+        <h3 class="filter-title">Filtrar por:</h3>
+        <!--Filtros-->
+        <div class="select-container">
 
-    <div class="card-container" id="card-container">
-        <div class="loader"></div>
-    </div>
+            <select id="lista-categorias" class="input" onchange="filterSelect(this)">
+                <option value="" selected disabled>Todos los personajes</option>
+                <option value="alphabetic">Órden alfabético</option>
+                <option value="species">Especie</option>
+                <option value="gender">Género</option>
+                <option value="status">Estado</option>
+                <option value="origin">Origen</option>
+            </select>
+        </div>
+        <div class="select-container">
+            <select class="input" id="lista-filtros" onchange="filterPersonajes(this)" disabled>
+                <option value="">Selecciona un filtro...</option>
+            </select>
+        </div>
+    </template>
+    <template id="filter-dimensions">
+        <h3 class="filter-title">Selecciona una dimensión:</h3>
+        <!--Filtros-->
+        <div class="select-container">
 
-    <div class="btn-group">
-        <button class="d-none prev btn-link">< Anterior</button>
-        <button class="next btn-link">Siguiente ></button>
-    </div>
+            <select id="lista-dimensions" class="input" onchange="filterDimension(this)">
+                <option value="" selected disabled>Todas las dimensiones</option>
+            </select>
+        </div>
+    </template>
+    <section>
+        <div class="btn-group">
+            <button class="d-none prev btn-link prev-style">< Anterior</button>
+            <button class="next btn-link next-style" id="next">Siguiente ></button>
+        </div>
+
+        <!--Display-->
+        <div class="card-container" id="card-container">
+            <div class="loader"></div>
+        </div>
+
+        <div class="btn-group">
+            <button class="d-none prev btn-link prev-style">< Anterior</button>
+            <button class="next btn-link next-style">Siguiente ></button>
+        </div>
+    </section>
+
+
+
 
     <footer>
-
+        Rick and Morty API web app - Freddy Perez - <a href="https://infortran.cl">Infortran S.I.</a>
     </footer>
 
     <!--Template de personaje-->
