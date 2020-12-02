@@ -110,7 +110,7 @@ const fetchPersonajes = async (url, sel) => {
 }
 
 //Pintar los personajes en card-container
-const renderPersonajes = (personajes) => {
+const renderPersonajes = personajes => {
     personajes.forEach(personaje => {
         templateCard.querySelector(".title").textContent = personaje.name
         templateCard.querySelector('.img').src = personaje.image
@@ -127,7 +127,7 @@ const renderPersonajes = (personajes) => {
 }
 
 //onchange de select lista categorias
-const filterSelect = (sel) => {
+const filterSelect = sel => {
     const filterList = document.getElementById('lista-filtros')
     sel.value != 'alphabetic' ? filterList.disabled = false : filterList.disabled = true
     fetchPersonajes(url, sel)
@@ -153,7 +153,7 @@ const filterPass = (data, sel) => {
 }
 
 //funcion que ordena los personajes alfabeticamente
-const orderAlphabetic = (data) => {
+const orderAlphabetic = data => {
     const orderData = data.sort( (a, b) => a.name.localeCompare(b.name))
     renderPersonajes(orderData)
     /*
@@ -177,7 +177,7 @@ const populateFilter = (data, filters) => {
 }
 
 //mostrar los filtros de acuerdo al select previo
-const filterPersonajes = (sel) => {
+const filterPersonajes = sel => {
     const categoriesList = document.getElementById('lista-categorias')
     const filterValue = categoriesList.value
     let newUrl = url
@@ -196,19 +196,19 @@ const filterPersonajes = (sel) => {
 }
 
 //mostrar las dimensiones en el select de dimensiones
-const populateDimensions = (locations) => {
+const populateDimensions = locations => {
     locations.forEach(res => {
         const filterDimensionList = document.getElementById('lista-dimensions')
         const option = document.createElement('option')
         const message = res.id +'- '+ res.dimension + ' - ' + res.name
         option.appendChild(document.createTextNode(message))
         option.value = res.id
-        setTimeout(() => {filterDimensionList.appendChild(option)},1000)
+        filterDimensionList.appendChild(option)
     })
 }
 
 //Esta funcion cambia los tipos de filtro entre normal y filtro de dimensiones
-const changeFilterType = (active) => {
+const changeFilterType = active => {
     filterContainer.innerHTML = '';
     if(active){
         const clone = filterDimensions.cloneNode(true)
@@ -223,7 +223,7 @@ const changeFilterType = (active) => {
 }
 
 //mostrur u ocultar los botones sig y prev de acuerdo al estado del filter
-const switchButtons = (enabled) => {
+const switchButtons = enabled => {
     const btnsNext = document.getElementsByClassName('next')
     Array.from(btnsNext).forEach((btn) => {
         if(enabled && next){
@@ -247,7 +247,7 @@ const switchButtons = (enabled) => {
 }
 
 //Filtramos la dimension y cargamos de a uno los personajes en el array residents
-const filterDimension = async (selected) => {
+const filterDimension = async selected => {
     const location = await fetch('https://rickandmortyapi.com/api/location/' + selected.value)
     const data = await location.json()
     cardContainer.innerHTML = '';
@@ -257,7 +257,7 @@ const filterDimension = async (selected) => {
 }
 
 //cargamos de a uno los personajes con su url
-const loadCharOneByOne = async (url) => {
+const loadCharOneByOne = async url => {
     const pers = await fetch(url)
     const personaje = await pers.json()
 
@@ -293,16 +293,6 @@ const fetchAllLocations = async () => {
             const allLocations = []
             responses.map(response => {
                 allLocations.push(response)
-            })
-            //Eliminar dimensiones repetidas
-            let tempDimens = {}
-            let uniqueDimensions = allLocations.filter((current)=>{
-                if(current.dimension in tempDimens){
-                    return false
-                }else{
-                    tempDimens[current.dimension] = true
-                    return true
-                }
             })
             populateDimensions(allLocations)
         })
